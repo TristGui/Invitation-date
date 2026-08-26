@@ -16,13 +16,13 @@ const ACTIVITIES: Activity[] = [
   {
     id: "Cinema",
     label: "Cinéma",
-    description: "Un bon film, main dans la main",
+    description: "Un bon film, yeux dans les yeux, lol",
     icon: <Film className="size-7" aria-hidden="true" />,
   },
   {
     id: "Pique-nique",
     label: "Pique-nique",
-    description: "Une couverture, le soleil, nous deux",
+    description: "buttes chaumont, bassin de la Villette, ou ailleurs",
     icon: <Trees className="size-7" aria-hidden="true" />,
   },
   {
@@ -40,13 +40,13 @@ const ACTIVITIES: Activity[] = [
   {
     id: "Bowling",
     label: "Bowling",
-    description: "Un strike, un fou rire, un défi",
+    description: "Un strike, une defaite d'Emilie, un fou rire",
     icon: <Target className="size-7" aria-hidden="true" />,
   },
   {
     id: "Musee",
     label: "Musée",
-    description: "Flâner devant les œuvres, à deux",
+    description: "Flâner devant des œuvres moins belles que toi",
     icon: <Landmark className="size-7" aria-hidden="true" />,
   },
 ]
