@@ -1,4 +1,4 @@
-import { DateInvitation } from "@/components/date-invitation"
+import Link from "next/link"
 import DaysCounter from "@/components/days-counter"
 import { Sparkles, CalendarHeart, MapPin } from "lucide-react"
 
