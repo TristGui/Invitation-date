@@ -111,7 +111,7 @@ export function DateInvitation() {
             </p>
           ) : (
             <p className="text-sm font-medium text-primary">
-              Un e-mail de confirmation a été envoyé à vous deux.
+              Un e-mail de confirmation a été envoyé.
             </p>
           )}
         </div>

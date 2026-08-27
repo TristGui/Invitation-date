@@ -2,7 +2,9 @@
 
 import { Resend } from "resend"
 
-const RECIPIENTS = ["trg9638@gmail.com", "emiliee.lux@gmail.com"]
+// Envoi limité à cette seule adresse pour le moment.
+// Pour envoyer aux deux, remets : ["trg9638@gmail.com", "emiliee.lux@gmail.com"]
+const RECIPIENTS = ["trg9638@gmail.com"]
 const FROM = "Notre Date <onboarding@resend.dev>"
 
 type SendResult = { ok: true } | { ok: false; error: string }
