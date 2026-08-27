@@ -30,7 +30,7 @@ const trips = [
   { id: 5, place: "Chypre", lat: 35.042583179702405, lng: 33.237540196903296, desc: "Voyage en mai 2025 \ud83c\udf0b" },
   { id: 6, place: "Corfou", lat: 39.62537403113246, lng: 19.846881451067688, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" }
 ]
-}
+
 export default function PlacesMap() {
   const [tab, setTab] = useState<"paris" | "world">("paris")
 
