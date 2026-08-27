@@ -16,13 +16,13 @@ const ACTIVITIES: Activity[] = [
   {
     id: "Cinema",
     label: "Cinéma",
-    description: "Un bon film, yeux dans les yeux, lol",
+    description: "Un bon film, main dans la main",
     icon: <Film className="size-7" aria-hidden="true" />,
   },
   {
     id: "Pique-nique",
     label: "Pique-nique",
-    description: "buttes chaumont, bassin de la Villette, ou ailleurs",
+    description: "Une couverture, le soleil, nous deux",
     icon: <Trees className="size-7" aria-hidden="true" />,
   },
   {
@@ -40,13 +40,13 @@ const ACTIVITIES: Activity[] = [
   {
     id: "Bowling",
     label: "Bowling",
-    description: "Un strike, une defaite d'Emilie, un fou rire",
+    description: "Un strike, un fou rire, un défi",
     icon: <Target className="size-7" aria-hidden="true" />,
   },
   {
     id: "Musee",
     label: "Musée",
-    description: "Flâner devant des œuvres moins belles que toi",
+    description: "Flâner devant les œuvres, à deux",
     icon: <Landmark className="size-7" aria-hidden="true" />,
   },
 ]
@@ -111,7 +111,7 @@ export function DateInvitation() {
             </p>
           ) : (
             <p className="text-sm font-medium text-primary">
-              Un e-mail de confirmation a été envoyé.
+              Un e-mail de confirmation a été envoyé à vous deux.
             </p>
           )}
         </div>
