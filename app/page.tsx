@@ -40,21 +40,21 @@ export default function HomePage() {
           </p>
         </Link>
 
-        {/* Carte : Nos cartes & adresses (Prévu pour plus tard) */}
-        <div className="opacity-60 bg-white/70 p-6 rounded-2xl border border-rose-100 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
-          <span className="absolute top-3 right-3 text-[10px] uppercase tracking-wider font-bold bg-rose-100 text-rose-600 px-2 py-0,5 rounded-full">
-            Bientôt
-          </span>
-          <div className="w-14 h-14 bg-rose-50 rounded-full flex items-center justify-center text-rose-400 mb-4">
-            <MapPin className="w-7 h-7" />
+        {/* Carte : Adresses & Voyages */}
+        <Link 
+          href="/carte"
+          className="group bg-card p-6 rounded-2xl border shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
+        >
+          <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-3 group-hover:bg-rose-100 transition-colors">
+            <MapPin className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-serif font-semibold mb-2 text-[#5c2434]">
+          <h2 className="text-lg font-serif font-semibold mb-1 text-[#5c2434]">
             Nos adresses & voyages
           </h2>
-          <p className="text-sm text-rose-950/60 leading-relaxed">
-            La carte de Paris de nos restos préférés et la carte du monde de nos escapades.
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            La carte de nos restos préférés et de nos escapades.
           </p>
-        </div>
+        </Link>
 
       </div>
     </main>

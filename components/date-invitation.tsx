@@ -22,7 +22,7 @@ const ACTIVITIES: Activity[] = [
   {
     id: "Pique-nique",
     label: "Pique-nique",
-    description: "buttes chaumont, bassin de la Villette, ou ailleurs",
+    description: "Buttes chaumont, Bassin de la Villette, ou ailleurs",
     icon: <Trees className="size-7" aria-hidden="true" />,
   },
   {

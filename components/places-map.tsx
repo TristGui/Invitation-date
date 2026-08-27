@@ -1,0 +1,91 @@
+"use client"
+
+import { useState } from "react"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import "leaflet/dist/leaflet.css"
+import L from "leaflet"
+
+// Correction des icônes par défaut de Leaflet sous Next.js
+const customIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+})
+
+// Vos adresses de restaurants à Paris / IDF
+const restaurants = [
+  { id: 1, name: "Mon Resto Préféré", lat: 48.8833, lng: 2.3785, note: "Top pour un d\u00eener en amoureux !" },
+  { id: 2, name: "Brunch du Dimanche", lat: 48.8566, lng: 2.3522, note: "Pancakes incroyables" },
+]
+
+// Vos destinations de voyage
+const trips = [
+  { id: 1, place: "Marrakech", lat: 31.6295, lng: -7.9811, desc: "Voyage en mars 2026 \ud83c\udf34" },
+  { id: 2, place: "Guatemala", lat: 14.6349, lng: -90.5069, desc: "Aventure en ao\u00fbt 2026 \ud83c\udf0b" },
+]
+
+export default function PlacesMap() {
+  const [tab, setTab] = useState<"paris" | "world">("paris")
+
+  return (
+    <div className="w-full max-w-4xl flex flex-col items-center gap-4">
+      {/* Sélecteur d'onglets */}
+      <div className="flex bg-rose-100/60 p-1 rounded-xl gap-1">
+        <button
+          onClick={() => setTab("paris")}
+          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+            tab === "paris" ? "bg-white text-[#5c2434] shadow-sm" : "text-rose-700/70 hover:text-[#5c2434]"
+          }`}
+        >
+          🇫🇷 Paris & Restos
+        </button>
+        <button
+          onClick={() => setTab("world")}
+          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+            tab === "world" ? "bg-white text-[#5c2434] shadow-sm" : "text-rose-700/70 hover:text-[#5c2434]"
+          }`}
+        >
+          🌍 Vos Voyages
+        </button>
+      </div>
+
+      {/* Carte Interactive */}
+      <div className="w-full h-[500px] rounded-2xl overflow-hidden border shadow-sm z-0">
+        {tab === "paris" ? (
+          <MapContainer center={[48.8566, 2.3522]} zoom={12} className="w-full h-full">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {restaurants.map((item) => (
+              <Marker key={item.id} position={[item.lat, item.lng]} icon={customIcon}>
+                <Popup>
+                  <strong>{item.name}</strong>
+                  <p className="text-xs text-gray-600 m-0">{item.note}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        ) : (
+          <MapContainer center={[20, 0]} zoom={2} className="w-full h-full">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {trips.map((item) => (
+              <Marker key={item.id} position={[item.lat, item.lng]} icon={customIcon}>
+                <Popup>
+                  <strong>{item.place}</strong>
+                  <p className="text-xs text-gray-600 m-0">{item.desc}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        )}
+      </div>
+    </div>
+  )
+}
