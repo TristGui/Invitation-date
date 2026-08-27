@@ -1,4 +1,5 @@
 import { DateInvitation } from "@/components/date-invitation"
+import { Sparkles, CalendarHeart, MapPin } from "lucide-react"
 
 export default function Page() {
   return (
