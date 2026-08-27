@@ -1,9 +1,8 @@
-import Link from "next/link"
-import DaysCounter from "@/components/days-counter"
-import { CalendarHeart, MapPin, Sparkles } from "lucide-react"
+import { DateInvitation } from "@/components/date-invitation"
 
-export default function HomePage() {
+export default function Page() {
   return (
+<<<<<<< HEAD
     <main className="min-h-screen bg-[#fdf2f4] flex flex-col items-center justify-center p-6 text-[#5c2434]">
       {/* En-tête */}
       <div className="text-center max-w-lg mb-4">
@@ -57,6 +56,10 @@ export default function HomePage() {
         </Link>
 
       </div>
+=======
+    <main className="flex min-h-svh items-center justify-center bg-background px-4 py-16">
+      <DateInvitation />
+>>>>>>> 6f00d9dfdbfa99e5cda8c88a96c1c6576b901ef7
     </main>
   )
 }
