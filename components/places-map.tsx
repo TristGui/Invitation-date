@@ -19,10 +19,11 @@ const customIcon = new L.Icon({
 const restaurants = [
   { id: 1, name: "PNY Marais", lat: 48.85819138153039, lng: 2.3570741064783562, note: "Top pour un burger en amoureux !" },
   { id: 2, name: "La villa 9trois", lat: 48.864025780701134, lng: 2.4332550097704697, note: "Top pour un étoilé en amoureux !" },
-  { id: 3, name: "La taverne de Zaho", lat: 48.8737686194688, lng: 2.3629348418253646, note: "Top pour des nouilles en amoureux !" },
+  { id: 3, name: "La taverne de Zaho", lat: 48.87339468067864, lng: 2.362550319836722, note: "Top pour des nouilles en amoureux !" },
   { id: 4, name: "Les Gros Tonton de Paname", lat: 48.868538570156744, lng: 2.3543216199354737, note: "Top pour des gros steaks en amoureux !" },
   { id: 5, name: "Les enfants Perdus", lat: 48.874348956258174, lng: 2.361880744594249, note: "Top pour des gros plats français en amoureux !" }
 ]
+
 // Vos destinations de voyage
 const trips = [
   { id: 1, place: "Marrakech", lat: 31.6295, lng: -7.9811, desc: "Voyage en mars 2026 \ud83c\udf34" },
