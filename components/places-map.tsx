@@ -29,7 +29,7 @@ const trips = [
   { id: 3, place: "Venise", lat: 45.440363109186606, lng: 12.340798236436102, desc: "Voyage en mars 2024 \ud83c\udf0b" },
   { id: 5, place: "Chypre", lat: 35.042583179702405, lng: 33.237540196903296, desc: "Voyage en mai 2025 \ud83c\udf0b" },
   { id: 6, place: "Corfou", lat: 39.62537403113246, lng: 19.846881451067688, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
-  { id: 7, place: "Philippines", lat: 12.8797, lng: 121.7740, desc: "Voyage en novembre 2023 \ud83c\udf0b" }
+  { id: 7, place: "Palawan", lat: 9.60251531893106, lng: 118.53339712993507, desc: "Voyage en novembre 2023 \ud83c\udf0b" }
 ]
 
 export default function PlacesMap() {
