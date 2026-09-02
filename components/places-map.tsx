@@ -21,7 +21,8 @@ const restaurants = [
   { id: 2, name: "La villa 9trois", lat: 48.864025780701134, lng: 2.4332550097704697, note: "Top pour un étoilé en amoureux !" },
   { id: 3, name: "La taverne de Zaho", lat: 48.87339468067864, lng: 2.362550319836722, note: "Top pour des nouilles en amoureux !" },
   { id: 4, name: "Les Gros Tonton de Paname", lat: 48.868538570156744, lng: 2.3543216199354737, note: "Top pour des gros steaks en amoureux !" },
-  { id: 5, name: "Les enfants Perdus", lat: 48.874348956258174, lng: 2.361880744594249, note: "Top pour des gros plats français en amoureux !" }
+  { id: 5, name: "Les enfants Perdus", lat: 48.874348956258174, lng: 2.361880744594249, note: "Top pour des gros plats français en amoureux !" },
+  { id: 6, name: "BAF", lat: 48.87124681832461, lng: 2.357039226923971, note: "Top pour du fromage en amoureux !" }
 ]
 
 // Vos destinations de voyage
