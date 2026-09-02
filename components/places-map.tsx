@@ -41,7 +41,9 @@ const trips = [
   { id: 9, place: "Saint-Maurice-Sur-Moselle", lat: 47.85077603683458, lng: 6.84364489100781, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
   { id: 10, place: "Annecy", lat: 45.90612130963721, lng: 6.1216005065813786, desc: "Week-end en avril 2024 \ud83c\udf0b" },
   { id: 11, place: "Aix-Les-Bains", lat: 45.700868212073324, lng: 5.919980326230269, desc: "Week-end en ao\u00fbt 2025 \ud83c\udf0b" },
-  { id: 12, place: "Marseille", lat: 43.30661647264806, lng: 5.371098015755031, desc: "Week-end en mai 2023 \ud83c\udf0b" }
+  { id: 12, place: "Marseille", lat: 43.30661647264806, lng: 5.371098015755031, desc: "Week-end en mai 2023 \ud83c\udf0b" },
+  { id: 13, place: "La Rochelle", lat: 46.1603416381241, lng: -1.1467836180922357, desc: "Week-end en Février 2025 \ud83c\udf0b" },
+  { id: 14, place: "Villers-sur-Mer", lat: 49.32213737875769, lng: -0.0058702945318242685, desc: "Week-end en Septembre 2024 \ud83c\udf0b" }
 ]
 
 export default function PlacesMap() {
