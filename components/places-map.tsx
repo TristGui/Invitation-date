@@ -22,7 +22,11 @@ const restaurants = [
   { id: 3, name: "La taverne de Zaho", lat: 48.87339468067864, lng: 2.362550319836722, note: "Top pour des nouilles en amoureux !" },
   { id: 4, name: "Les Gros Tonton de Paname", lat: 48.868538570156744, lng: 2.3543216199354737, note: "Top pour des gros steaks en amoureux !" },
   { id: 5, name: "Les enfants Perdus", lat: 48.874348956258174, lng: 2.361880744594249, note: "Top pour des gros plats français en amoureux !" },
-  { id: 6, name: "BAF", lat: 48.87124681832461, lng: 2.357039226923971, note: "Top pour du fromage en amoureux !" }
+  { id: 6, name: "BAF", lat: 48.87124681832461, lng: 2.357039226923971, note: "Top pour du fromage en amoureux !" },
+  { id: 7, name: "Da Pride", lat: 48.88094769687359, lng: 2.374654437596373, note: "Top pour des pizzas en amoureux !" },
+  { id: 8, name: "Les frères laumières", lat: 48.88293466548986, lng: 2.381188810861015, note: "Top pour un repas en amoureux !" },
+  { id: 9, name: "Ty Bilig", lat: 48.64354181453356, lng: 1.8255115068121694, note: "Top pour des crêpes en amoureux !" },
+  { id: 10, name: "Villa Marinette", lat: 48.63887764562577, lng: 1.7718121930536999, note: "Top pour un grastro en amoureux !" }
 ]
 
 // Vos destinations de voyage
@@ -33,7 +37,11 @@ const trips = [
   { id: 5, place: "Chypre", lat: 35.042583179702405, lng: 33.237540196903296, desc: "Voyage en mai 2024 \ud83c\udf0b" },
   { id: 6, place: "Corfou", lat: 39.62537403113246, lng: 19.846881451067688, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
   { id: 7, place: "Palawan", lat: 9.60251531893106, lng: 118.53339712993507, desc: "Voyage en novembre 2023 \ud83c\udf0b" },
-  { id: 8, place: "Lac de Côme", lat: 46.02131602239564, lng: 9.260044831435698, desc: "Voyage en mai 2025 \ud83c\udf0b" }
+  { id: 8, place: "Lac de Côme", lat: 46.02131602239564, lng: 9.260044831435698, desc: "Voyage en mai 2025 \ud83c\udf0b" },
+  { id: 9, place: "Saint-Maurice-Sur-Moselle", lat: 47.85077603683458, lng: 6.84364489100781, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
+  { id: 10, place: "Annecy", lat: 45.90612130963721, lng: 6.1216005065813786, desc: "Week-end en avril 2024 \ud83c\udf0b" },
+  { id: 11, place: "Aix-Les-Bains", lat: 45.700868212073324, lng: 5.919980326230269, desc: "Week-end en ao\u00fbt 2025 \ud83c\udf0b" },
+  { id: 12, place: "Marseille", lat: 43.30661647264806, lng: 5.371098015755031, desc: "Week-end en mai 2023 \ud83c\udf0b" }
 ]
 
 export default function PlacesMap() {
