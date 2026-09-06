@@ -21,6 +21,16 @@ export default function Page() {
 
       {/* Compteur de jours */}
       <DaysCounter />
+
+      {/* Carte : Organiser un date (Pointe vers /date) */}
+        {/* 2. Formulaire / Pacte (Invitation) */}
+      <section className="w-full max-w-xl bg-zinc-900/80 p-6 rounded-2xl border border-zinc-800 shadow-xl">
+        <h2 className="text-xl font-serif text-red-700 mb-4 text-center tracking-wide uppercase">
+          Sceller un RDV
+        </h2>
+        <DateInvitation />
+      </section>
+
     </main>
   )
 }
