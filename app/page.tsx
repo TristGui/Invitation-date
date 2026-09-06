@@ -22,13 +22,17 @@ export default function Page() {
       {/* Compteur de jours */}
       <DaysCounter />
 
-      {/* Carte : Organiser un date (Pointe vers /date) */}
-        {/* 2. Formulaire / Pacte (Invitation) */}
-      <section className="w-full max-w-xl bg-zinc-900/80 p-6 rounded-2xl border border-zinc-800 shadow-xl">
-        <h2 className="text-xl font-serif text-red-700 mb-4 text-center tracking-wide uppercase">
-          Sceller un RDV
-        </h2>
-        <DateInvitation />
+{/* 2. Bouton Date (pointe vers une route inexistante -> 404) */}
+      <section className="w-full max-w-xl">
+        <Link
+          href="/date-inexistant"
+          className="group bg-card p-6 rounded-2xl border border-border shadow-2xl flex items-center justify-center gap-3 transition-all duration-200 hover:border-primary cursor-pointer"
+        >
+          <Lock className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+          <span className="text-lg font-serif text-foreground tracking-wide uppercase">
+            Sceller un RDV
+          </span>
+        </Link>
       </section>
 
     </main>
