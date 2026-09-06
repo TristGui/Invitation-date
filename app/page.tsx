@@ -21,43 +21,6 @@ export default function Page() {
 
       {/* Compteur de jours */}
       <DaysCounter />
-
-      {/* Liens du menu */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl w-full mt-6">
-        
-        {/* Carte : Date / Pacte */}
-        <Link 
-          href="/date" 
-          className="group bg-zinc-900/80 p-6 rounded-xl border border-zinc-800 hover:border-red-900 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
-        >
-          <div className="w-12 h-12 bg-red-950/30 rounded-full flex items-center justify-center text-red-600 mb-3 group-hover:scale-110 transition-transform border border-red-900/30">
-            <Lock className="w-5 h-5" />
-          </div>
-          <h2 className="text-lg font-serif font-semibold mb-1 text-zinc-200">
-            Sceller un RDV
-          </h2>
-          <p className="text-xs text-zinc-500 leading-relaxed">
-            Choisis notre prochaine escapade nocturne.
-          </p>
-        </Link>
-
-        {/* Carte : Lieux */}
-        <Link 
-          href="/carte"
-          className="group bg-zinc-900/80 p-6 rounded-xl border border-zinc-800 hover:border-red-900 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
-        >
-          <div className="w-12 h-12 bg-red-950/30 rounded-full flex items-center justify-center text-red-600 mb-3 group-hover:scale-110 transition-transform border border-red-900/30">
-            <MapPin className="w-5 h-5" />
-          </div>
-          <h2 className="text-lg font-serif font-semibold mb-1 text-zinc-200">
-            Nos Repaires
-          </h2>
-          <p className="text-xs text-zinc-500 leading-relaxed">
-            La carte de nos lieux secrets et repères.
-          </p>
-        </Link>
-
-      </div>
     </main>
   )
 }
