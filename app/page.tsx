@@ -1,58 +1,59 @@
 import Link from "next/link"
 import DaysCounter from "@/components/days-counter"
-import { Sparkles, CalendarHeart, MapPin } from "lucide-react"
+import { Link2, Lock, MapPin, Flame } from "lucide-react"
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#fdf2f4] flex flex-col items-center justify-center p-6 text-[#5c2434]">
-      {/* En-tête */}
-      <div className="text-center max-w-lg mb-4">
-        <div className="inline-flex items-center justify-center p-3 bg-rose-100 text-rose-500 rounded-full mb-4">
-          <Sparkles className="w-6 h-6" />
+    <main className="flex min-h-svh flex-col items-center justify-center bg-background px-4 py-12 text-center text-foreground">
+      
+      {/* En-tête Gothique */}
+      <div className="max-w-lg mb-4 flex flex-col items-center">
+        <div className="inline-flex items-center justify-center p-3 bg-red-950/40 text-red-700 rounded-full mb-3 border border-red-900/50">
+          <Link2 className="w-6 h-6 rotate-45" />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-3">
-          Notre Univers
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-widest text-red-800 uppercase">
+          Liaison Éternelle
         </h1>
-        <p className="text-rose-700/80 text-base sm:text-lg">
-          Bienvenue sur notre petit espace à nous.
+        <p className="text-zinc-500 text-xs mt-1 tracking-wider uppercase">
+          Enchaînés par le temps
         </p>
       </div>
 
       {/* Compteur de jours */}
       <DaysCounter />
 
-      {/* Grille des accès / cartes */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl w-full mt-4">
+      {/* Liens du menu */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl w-full mt-6">
         
-        {/* Carte : Organiser un date (Pointe vers /date) */}
+        {/* Carte : Date / Pacte */}
         <Link 
           href="/date" 
-          className="group bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
+          className="group bg-zinc-900/80 p-6 rounded-xl border border-zinc-800 hover:border-red-900 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
         >
-          <div className="w-14 h-14 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-4 group-hover:bg-rose-100 transition-colors">
-            <CalendarHeart className="w-7 h-7" />
+          <div className="w-12 h-12 bg-red-950/30 rounded-full flex items-center justify-center text-red-600 mb-3 group-hover:scale-110 transition-transform border border-red-900/30">
+            <Lock className="w-5 h-5" />
           </div>
-          <h2 className="text-xl font-serif font-semibold mb-2 text-[#5c2434]">
-            On se fait un date ?
+          <h2 className="text-lg font-serif font-semibold mb-1 text-zinc-200">
+            Sceller un RDV
           </h2>
-          <p className="text-sm text-rose-950/60 leading-relaxed">
-            Choisis l'activité et le jour qui te conviennent, je m'occupe du reste.
+          <p className="text-xs text-zinc-500 leading-relaxed">
+            Choisis notre prochaine escapade nocturne.
           </p>
         </Link>
 
-        {/* Carte : Adresses & Voyages */}
+        {/* Carte : Lieux */}
         <Link 
           href="/carte"
-          className="group bg-card p-6 rounded-2xl border shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
+          className="group bg-zinc-900/80 p-6 rounded-xl border border-zinc-800 hover:border-red-900 transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
         >
-          <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-3 group-hover:bg-rose-100 transition-colors">
-            <MapPin className="w-6 h-6" />
+          <div className="w-12 h-12 bg-red-950/30 rounded-full flex items-center justify-center text-red-600 mb-3 group-hover:scale-110 transition-transform border border-red-900/30">
+            <MapPin className="w-5 h-5" />
           </div>
-          <h2 className="text-lg font-serif font-semibold mb-1 text-[#5c2434]">
-            Nos adresses & voyages
+          <h2 className="text-lg font-serif font-semibold mb-1 text-zinc-200">
+            Nos Repaires
           </h2>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            La carte de nos restos préférés et de nos escapades.
+          <p className="text-xs text-zinc-500 leading-relaxed">
+            La carte de nos lieux secrets et repères.
           </p>
         </Link>
 

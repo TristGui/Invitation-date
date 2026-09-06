@@ -156,10 +156,13 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+  :root {
+    --background: 0 0% 5%;          /* Noir très profond */
+    --foreground: 0 0% 90%;         /* Gris clair/argenté */
+    --card: 0 0% 8%;                /* Carte sombre */
+    --card-foreground: 0 0% 95%;
+    --primary: 345 80% 30%;         /* Rouge bordeaux / sang */
+    --primary-foreground: 0 0% 98%;
+    --border: 0 0% 18%;             /* Bordure sombre */
   }
 }
