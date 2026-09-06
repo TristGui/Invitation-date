@@ -1,0 +1,110 @@
+"use client"
+
+import { useState } from "react"
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
+import "leaflet/dist/leaflet.css"
+import L from "leaflet"
+
+// Correction des icônes par défaut de Leaflet sous Next.js
+const customIcon = new L.Icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+})
+
+// Vos adresses de restaurants à Paris / IDF
+const restaurants = [
+  { id: 1, name: "PNY Marais", lat: 48.85819138153039, lng: 2.3570741064783562, note: "Top pour un burger en amoureux !" },
+  { id: 2, name: "La villa 9trois", lat: 48.864025780701134, lng: 2.4332550097704697, note: "Top pour un étoilé en amoureux !" },
+  { id: 3, name: "La taverne de Zaho", lat: 48.87339468067864, lng: 2.362550319836722, note: "Top pour des nouilles en amoureux !" },
+  { id: 4, name: "Les Gros Tonton de Paname", lat: 48.868538570156744, lng: 2.3543216199354737, note: "Top pour des gros steaks en amoureux !" },
+  { id: 5, name: "Les enfants Perdus", lat: 48.874348956258174, lng: 2.361880744594249, note: "Top pour des gros plats français en amoureux !" },
+  { id: 6, name: "BAF", lat: 48.87124681832461, lng: 2.357039226923971, note: "Top pour du fromage en amoureux !" },
+  { id: 7, name: "Da Pride", lat: 48.88094769687359, lng: 2.374654437596373, note: "Top pour des pizzas en amoureux !" },
+  { id: 8, name: "Les frères laumières", lat: 48.88293466548986, lng: 2.381188810861015, note: "Top pour un repas en amoureux !" },
+  { id: 9, name: "Ty Bilig", lat: 48.64354181453356, lng: 1.8255115068121694, note: "Top pour des crêpes en amoureux !" },
+  { id: 10, name: "Villa Marinette", lat: 48.63887764562577, lng: 1.7718121930536999, note: "Top pour un grastro en amoureux !" }
+]
+
+// Vos destinations de voyage
+const trips = [
+  { id: 1, place: "Marrakech", lat: 31.6295, lng: -7.9811, desc: "Voyage en mars 2026 \ud83c\udf34" },
+  { id: 2, place: "Guatemala", lat: 14.6349, lng: -90.5069, desc: "Voyage en ao\u00fbt 2026 \ud83c\udf0b" },
+  { id: 3, place: "Venise", lat: 45.440363109186606, lng: 12.340798236436102, desc: "Voyage en mars 2024 \ud83c\udf0b" },
+  { id: 5, place: "Chypre", lat: 35.042583179702405, lng: 33.237540196903296, desc: "Voyage en mai 2024 \ud83c\udf0b" },
+  { id: 6, place: "Corfou", lat: 39.62537403113246, lng: 19.846881451067688, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
+  { id: 7, place: "Palawan", lat: 9.60251531893106, lng: 118.53339712993507, desc: "Voyage en novembre 2023 \ud83c\udf0b" },
+  { id: 8, place: "Lac de Côme", lat: 46.02131602239564, lng: 9.260044831435698, desc: "Voyage en mai 2025 \ud83c\udf0b" },
+  { id: 9, place: "Saint-Maurice-Sur-Moselle", lat: 47.85077603683458, lng: 6.84364489100781, desc: "Voyage en ao\u00fbt 2025 \ud83c\udf0b" },
+  { id: 10, place: "Annecy", lat: 45.90612130963721, lng: 6.1216005065813786, desc: "Week-end en avril 2024 \ud83c\udf0b" },
+  { id: 11, place: "Aix-Les-Bains", lat: 45.700868212073324, lng: 5.919980326230269, desc: "Week-end en ao\u00fbt 2025 \ud83c\udf0b" },
+  { id: 12, place: "Marseille", lat: 43.30661647264806, lng: 5.371098015755031, desc: "Week-end en mai 2023 \ud83c\udf0b" },
+  { id: 13, place: "La Rochelle", lat: 46.1603416381241, lng: -1.1467836180922357, desc: "Week-end en Février 2025 \ud83c\udf0b" },
+  { id: 14, place: "Villers-sur-Mer", lat: 49.32213737875769, lng: -0.0058702945318242685, desc: "Week-end en Septembre 2024 \ud83c\udf0b" }
+]
+
+export default function PlacesMap() {
+  const [tab, setTab] = useState<"paris" | "world">("paris")
+
+  return (
+    <div className="w-full max-w-4xl flex flex-col items-center gap-4">
+      {/* Sélecteur d'onglets */}
+      <div className="flex bg-rose-100/60 p-1 rounded-xl gap-1">
+        <button
+          onClick={() => setTab("paris")}
+          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+            tab === "paris" ? "bg-white text-[#5c2434] shadow-sm" : "text-rose-700/70 hover:text-[#5c2434]"
+          }`}
+        >
+          🇫🇷 Paris & Restos
+        </button>
+        <button
+          onClick={() => setTab("world")}
+          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+            tab === "world" ? "bg-white text-[#5c2434] shadow-sm" : "text-rose-700/70 hover:text-[#5c2434]"
+          }`}
+        >
+          🌍 Vos Voyages
+        </button>
+      </div>
+
+      {/* Carte Interactive */}
+      <div className="w-full h-[500px] rounded-2xl overflow-hidden border shadow-sm z-0">
+        {tab === "paris" ? (
+          <MapContainer center={[48.8566, 2.3522]} zoom={12} className="w-full h-full">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {restaurants.map((item) => (
+              <Marker key={item.id} position={[item.lat, item.lng]} icon={customIcon}>
+                <Popup>
+                  <strong>{item.name}</strong>
+                  <p className="text-xs text-gray-600 m-0">{item.note}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        ) : (
+          <MapContainer center={[20, 0]} zoom={2} className="w-full h-full">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {trips.map((item) => (
+              <Marker key={item.id} position={[item.lat, item.lng]} icon={customIcon}>
+                <Popup>
+                  <strong>{item.place}</strong>
+                  <p className="text-xs text-gray-600 m-0">{item.desc}</p>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        )}
+      </div>
+    </div>
+  )
+}
