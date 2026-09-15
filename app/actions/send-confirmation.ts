@@ -2,10 +2,16 @@
 
 import { Resend } from "resend"
 
-// Envoi limité à cette seule adresse pour le moment.
-// Pour envoyer aux deux, remets : ["trg9638@gmail.com", "emiliee.lux@gmail.com"]
-const RECIPIENTS = ["trg9638@gmail.com"]
-const FROM = "Notre Date <onboarding@resend.dev>"
+const resend = new Resend(process.env.RESEND_API_KEY)
+
+// Envoi vers les deux destinataires
+const RECIPIENTS = [
+  "trg9638@gmail.com",
+  process.env.NOTIFICATION_EMAIL_2 || "emiliee.lux@gmail.com" // ou directement l'adresse en dur
+]
+
+// Expéditeur utilisant ton sous-domaine vérifié
+const FROM = "Notre Date <invitation@xn--trimouill-j4a.com>"
 
 type SendResult = { ok: true } | { ok: false; error: string }
 
