@@ -11,7 +11,7 @@ const RECIPIENTS = [
 ]
 
 // Expéditeur utilisant ton sous-domaine vérifié
-const FROM = "Notre Date <contact@send.xn--trimouill-j4a-PUNYCODE.com>"
+const FROM = "Notre Date <contact@send.xn--trimouill-j4a.com>"
 
 type SendResult = { ok: true } | { ok: false; error: string }
 
