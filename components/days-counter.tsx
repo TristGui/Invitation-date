@@ -25,7 +25,7 @@ export default function DaysCounter() {
         <span className="text-xl font-semibold text-rose-500">jours</span>
       </div>
       <p className="text-xs text-muted-foreground mt-2 font-light">
-        ...et ce n'est que le début ❤️
+        ...et je me souviens de chaque jour passé à tes côtés ❤️
       </p>
     </div>
   )

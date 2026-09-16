@@ -11,10 +11,10 @@ export default function Page() {
           <Sparkles className="w-6 h-6" />
         </div>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight mb-3">
-          Notre Univers
+          Trimouillé
         </h1>
         <p className="text-rose-700/80 text-base sm:text-lg">
-          Bienvenue sur notre petit espace à nous.
+          Bienvenue sur notre petit espace.
         </p>
       </div>
 

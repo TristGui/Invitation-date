@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState, useMemo, useTransition } from "react"
-import { Film, UtensilsCrossed, Trees, Heart, Check, EyeOff, Target, Landmark } from "lucide-react"
+import { Film, UtensilsCrossed, Trees, Heart, Check, EyeOff, Target, Landmark, Sparkles } from "lucide-react"
 import { sendConfirmation } from "@/app/actions/send-confirmation"
 
 type Activity = {
@@ -49,10 +49,29 @@ const ACTIVITIES: Activity[] = [
     description: "Flâner devant les œuvres, à deux",
     icon: <Landmark className="size-7" aria-hidden="true" />,
   },
+  {
+    id: "Qualité/prix",
+    label: "Qualité/prix",
+    description: "Choisir les meilleurs produits pour le meilleur prix",
+    icon: <Target className="size-7" aria-hidden="true" />,
+  },
+  {
+    id: "Une baise",
+    label: "Une baise",
+    description: "Un moment intime, à deux",
+    icon: <Heart className="size-7" aria-hidden="true" />,
+  },
+  {
+    id: "autre",
+    label: "Proposer une idée",
+    description: "J'ai une idée que tu vas adorer !",
+    icon: <Sparkles className="size-7" aria-hidden="true" />,
+  },
 ]
 
 export function DateInvitation() {
   const [activity, setActivity] = useState<string>("")
+  const [customActivity, setCustomActivity] = useState<string>("")
   const [date, setDate] = useState<string>("")
   const [submitted, setSubmitted] = useState(false)
   const [emailError, setEmailError] = useState<string>("")
@@ -60,7 +79,13 @@ export function DateInvitation() {
 
   const today = useMemo(() => new Date().toISOString().split("T")[0], [])
 
-  const chosen = ACTIVITIES.find((a) => a.id === activity)
+  // Libellé de l'activité choisie (prend le texte sur-mesure si "autre" est choisi)
+  const finalActivityLabel = useMemo(() => {
+    if (activity === "autre") {
+      return customActivity.trim() !== "" ? customActivity.trim() : "Idée sur-mesure"
+    }
+    return ACTIVITIES.find((a) => a.id === activity)?.label ?? activity
+  }, [activity, customActivity])
 
   const prettyDate = useMemo(() => {
     if (!date) return ""
@@ -76,18 +101,17 @@ export function DateInvitation() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!activity || !date) return
-    const label = ACTIVITIES.find((a) => a.id === activity)?.label ?? activity
     setEmailError("")
     setSubmitted(true)
     startTransition(async () => {
-      const result = await sendConfirmation(label, date)
+      const result = await sendConfirmation(finalActivityLabel, date)
       if (!result.ok) {
         setEmailError(result.error)
       }
     })
   }
 
-  if (submitted && chosen) {
+  if (submitted) {
     return (
       <div className="w-full max-w-md text-center">
         <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -95,7 +119,7 @@ export function DateInvitation() {
         </div>
         <h2 className="font-serif text-3xl font-semibold text-balance text-foreground">C&apos;est un rendez-vous !</h2>
         <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-          On se retrouve pour un(e) <span className="font-medium text-primary">{chosen.label.toLowerCase()}</span>
+          On se retrouve pour : <span className="font-medium text-primary">{finalActivityLabel}</span>
         </p>
         <p className="mt-1 text-pretty leading-relaxed text-muted-foreground">
           le <span className="font-medium text-primary">{prettyDate}</span>.
@@ -183,6 +207,26 @@ export function DateInvitation() {
           </div>
         </fieldset>
 
+        {/* Champ de texte affiché uniquement si l'option "autre" est cochée */}
+        {activity === "autre" && (
+          <div className="mt-6 flex flex-col items-center gap-2">
+            <label htmlFor="customActivity" className="text-sm font-medium text-foreground">
+              Quelle est ton idée ?
+            </label>
+            <input
+              type="text"
+              id="customActivity"
+              name="customActivity"
+              value={customActivity}
+              onChange={(e) => setCustomActivity(e.target.value)}
+              placeholder="Ex: Soirée jeux de société, accrobranche..."
+              required
+              autoFocus
+              className="w-full max-w-md rounded-lg border border-input bg-card px-4 py-2.5 text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring"
+            />
+          </div>
+        )}
+
         <div className="mt-8 flex flex-col items-center gap-2">
           <label htmlFor="date" className="text-sm font-medium text-foreground">
             Quel jour te dirait ?
@@ -202,7 +246,7 @@ export function DateInvitation() {
         <div className="mt-10 flex justify-center">
           <button
             type="submit"
-            disabled={!activity || !date}
+            disabled={!activity || !date || (activity === "autre" && !customActivity.trim())}
             className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Heart className="size-4 fill-current" aria-hidden="true" />
