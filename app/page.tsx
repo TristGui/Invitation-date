@@ -1,6 +1,6 @@
 import Link from "next/link"
 import DaysCounter from "@/components/days-counter"
-import { Sparkles, CalendarHeart, MapPin } from "lucide-react"
+import { Sparkles, CalendarHeart, MapPin, Mail } from "lucide-react"
 
 export default function Page() {
   return (
@@ -22,28 +22,28 @@ export default function Page() {
       <DaysCounter />
 
       {/* Grille des accès / cartes */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl w-full mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl w-full mt-6">
         
-        {/* Carte : Organiser un date (Pointe vers /date) */}
+        {/* Carte 1 : Organiser un date */}
         <Link 
           href="/date" 
           className="group bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
         >
-          <div className="w-14 h-14 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-4 group-hover:bg-rose-100 transition-colors">
-            <CalendarHeart className="w-7 h-7" />
+          <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-3 group-hover:bg-rose-100 transition-colors">
+            <CalendarHeart className="w-6 h-6" />
           </div>
-          <h2 className="text-xl font-serif font-semibold mb-2 text-[#5c2434]">
+          <h2 className="text-lg font-serif font-semibold mb-1 text-[#5c2434]">
             On se fait un date ?
           </h2>
-          <p className="text-sm text-rose-950/60 leading-relaxed">
+          <p className="text-xs text-rose-950/60 leading-relaxed">
             Choisis l'activité et le jour qui te conviennent, je m'occupe du reste.
           </p>
         </Link>
 
-        {/* Carte : Adresses & Voyages */}
+        {/* Carte 2 : Adresses & Voyages */}
         <Link 
           href="/carte"
-          className="group bg-card p-6 rounded-2xl border shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
+          className="group bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
         >
           <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-3 group-hover:bg-rose-100 transition-colors">
             <MapPin className="w-6 h-6" />
@@ -51,8 +51,24 @@ export default function Page() {
           <h2 className="text-lg font-serif font-semibold mb-1 text-[#5c2434]">
             Nos adresses & voyages
           </h2>
-          <p className="text-xs text-muted-foreground leading-relaxed">
+          <p className="text-xs text-rose-950/60 leading-relaxed">
             La carte de nos restos préférés et de nos escapades.
+          </p>
+        </Link>
+
+        {/* Carte 3 : L'Enveloppe / Faire-part */}
+        <Link 
+          href="/invitation"
+          className="group bg-white p-6 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col items-center text-center cursor-pointer hover:-translate-y-1"
+        >
+          <div className="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500 mb-3 group-hover:bg-rose-100 transition-colors">
+            <Mail className="w-6 h-6" />
+          </div>
+          <h2 className="text-lg font-serif font-semibold mb-1 text-[#5c2434]">
+            Une lettre pour toi
+          </h2>
+          <p className="text-xs text-rose-950/60 leading-relaxed">
+            Un pli scellé à ouvrir avec une petite surprise à l'intérieur.
           </p>
         </Link>
 
