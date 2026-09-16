@@ -50,9 +50,21 @@ const ACTIVITIES: Activity[] = [
     icon: <Landmark className="size-7" aria-hidden="true" />,
   },
   {
+    id: "Qualité/prix",
+    label: "Qualité/prix",
+    description: "Choisir les meilleurs produits pour le meilleur prix",
+    icon: <Target className="size-7" aria-hidden="true" />,
+  },
+  {
+    id: "Une baise",
+    label: "Une baise",
+    description: "Un moment intime, à deux",
+    icon: <Heart className="size-7" aria-hidden="true" />,
+  },
+  {
     id: "autre",
     label: "Proposer une idée",
-    description: "Tu as quelque chose de précis en tête ?",
+    description: "J'ai une idée que tu vas adorer !",
     icon: <Sparkles className="size-7" aria-hidden="true" />,
   },
 ]
